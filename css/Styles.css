@@ -1,4 +1,4 @@
-/* --- VARIABLES Y RESET --- */
+/*  VARIABLES Y RESET  */
 :root {
     --bg-dark: #05060b;
     --neon-cyan: #00f0ff;
@@ -9,49 +9,49 @@
 }
 
 * {
-    box-sizing: border-box; /* Crucial para evitar scroll lateral */
+    box-sizing: border-box; 
 }
 
-/* --- FONDO CON TRANSPARENCIA --- */
+/*  FONDO CON TRANSPARENCIA  */
 body {
     position: relative;
     margin: 0;
     padding: 0;
-    background-color: #03040a; /* Color base oscuro */
+    background-color: #03040a; 
     min-height: 100vh;
     color: var(--neon-cyan);
     font-family: 'Segoe UI', Roboto, monospace;
-    overflow-x: hidden; /* Evita cualquier fuga de contenido lateral */
+    overflow-x: hidden; 
 }
 
 body::before {
     content: "";
-    position: fixed; /* Se queda fija mientras haces scroll */
+    position: fixed; 
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /* Reemplaza la URL por la de tu imagen preferida */
+    
     background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.15; /* AJUSTA AQUÍ LA TRANSPARENCIA (0.1 a 0.3 recomendado) */
-    z-index: -1; /* Se coloca detrás de todo el contenido */
-    pointer-events: none; /* Evita que la imagen interfiera con los clics */
+    opacity: 0.15; 
+    z-index: -1; 
+    pointer-events: none; 
 }
 
-/* --- CONTENEDOR PRINCIPAL (CENTRADO) --- */
+/*  CONTENEDOR PRINCIPAL */
 .container {
     max-width: 1600px;
-    width: 95%; /* Deja un margen del 5% a cada lado en móviles */
-    margin: 20px auto; /* Centra el bloque horizontalmente */
+    width: 95%; 
+    margin: 20px auto; 
     display: flex;
     flex-direction: column;
     gap: var(--gap);
 }
 
-/* --- HEADER Y MENÚ (EL PROBLEMA ESTABA AQUÍ) --- */
+/*  HEADER Y MENÚ  */
 header {
     text-align: center;
     padding: 20px;
@@ -69,8 +69,8 @@ header h1 {
     padding: 0;
     margin: 0;
     display: flex;
-    flex-wrap: wrap; /* HACE QUE LOS LINKS BAJEN SI NO CABEN */
-    justify-content: center; /* CENTRA LOS LINKS */
+    flex-wrap: wrap; 
+    justify-content: center; 
     gap: 10px;
 }
 
@@ -110,7 +110,7 @@ header h1 {
     z-index: 10;
 }
 
-/* --- CONTENIDO --- */
+/*  CONTENIDO  */
 main {
     background: var(--panel);
     border-radius: var(--radius);
@@ -148,7 +148,7 @@ footer {
     font-size: 0.8rem;
 }
 
-/* --- AJUSTE PARA MÓVILES --- */
+/*  AJUSTE PARA MÓVILES  */
 @media (max-width: 600px) {
     .container {
         width: 95%;
@@ -160,8 +160,8 @@ footer {
     }
 }
 
-/* --- ESTILOS PARA TRANSICIONES --- */
-/* Estilos base para los martillos interactivos */
+/*  ESTILOS PARA TRANSICIONES  */
+
 .martillo-container {
     width: 100%;
     height: 250px;
@@ -190,7 +190,7 @@ footer {
     fill: #000;
 }
 
-/* Ejemplo 1: Transición Única */
+
 #martillo-1 {
     transition: left 1.5s;
     -webkit-transition: left 1.5s;
@@ -200,7 +200,7 @@ footer {
     left: 400px;
 }
 
-/* Ejemplo 2: Múltiples Propiedades */
+
 #martillo-2 {
     background-color: orange;
     width: 100px;
@@ -220,7 +220,7 @@ footer {
     padding-top: 20px;
 }
 
-/* Ejemplo 3: Opacity y Retardo */
+
 #martillo-3 {
     opacity: 1;
     transition: opacity 2s ease-out 0.5s;
@@ -230,8 +230,8 @@ footer {
     opacity: 0;
 }
 
-/* --- ESTILOS PARA TRANSFORMACIONES --- */
-/* Estilo base para el martillo de los ejemplos */
+/*  ESTILOS PARA TRANSFORMACIONES  */
+
 .martillo-box {
     width: 100px;
     height: 100px;
@@ -250,8 +250,8 @@ footer {
     filter: drop-shadow(0 0 5px var(--neon-cyan));
 }
 
-/* --- ESTILOS PARA COLUMNAS --- */
-/* Estilos específicos para los ejemplos de columnas */
+/*  ESTILOS PARA COLUMNAS  */
+
 .ejemplo-columnas {
     background: rgba(255, 255, 255, 0.02);
     padding: 20px;
@@ -269,17 +269,17 @@ footer {
     margin: 0;
 }
 
-/* Variaciones de líneas para los ejemplos finales */
+
 .rule-solid { column-rule: 4px solid var(--neon-cyan); }
 .rule-double { column-rule: 6px double var(--neon-pink); }
 .rule-dashed { column-rule: 4px dashed var(--neon-green); }
 
-/* --- ESTILOS DE TABLAS CYBERPUNK --- */
+
 table {
     width: 100%;
     border-collapse: collapse;
     margin: 25px 0;
-    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro traslúcido */
+    background: rgba(0, 0, 0, 0.4); 
     border: 1px solid var(--neon-cyan);
     font-family: 'Fira Code', monospace;
 }
@@ -299,10 +299,10 @@ th {
 }
 
 tr:hover {
-    background: rgba(255, 0, 212, 0.05); /* Efecto al pasar el mouse */
+    background: rgba(255, 0, 212, 0.05); 
 }
 
-/* Colores para las celdas de compatibilidad */
+
 .check {
     color: var(--neon-cyan);
     font-weight: bold;
@@ -314,7 +314,7 @@ tr:hover {
     opacity: 0.4;
 }
 
-/* --- ESTILOS PARA COLORES Y DEGRADADOS --- */
+/*  ESTILOS PARA COLORES Y DEGRADADOS  */
 .color-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
@@ -322,7 +322,7 @@ tr:hover {
     margin-top: 10px;
 }
 
-/* --- ESTILOS PARA SVG --- */
+/*  ESTILOS PARA SVG  */
 .flag-container {
     display: flex;
     flex-wrap: wrap;
@@ -352,11 +352,11 @@ tr:hover {
     text-align: center;
     font-size: 0.8rem;
     font-weight: bold;
-    color: #000; /* Texto negro para que resalte en los colores claros */
+    color: #000; 
     text-shadow: none;
 }
 
-/* --- ESTILOS PARA RESPONSIVE --- */
+/*  ESTILOS PARA RESPONSIVE  */
 .demo-responsive {
     padding: 20px;
     text-align: center;
@@ -371,7 +371,7 @@ tr:hover {
     color: var(--neon-pink);
 }
 
-/* Media Query de ejemplo */
+
 @media only screen and (max-width: 768px) {
     .demo-responsive {
         background: rgba(255, 0, 212, 0.1);
@@ -394,7 +394,7 @@ tr:hover {
     display: flex;
     gap: 20px;
     padding: 20px;
-    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Fondo patrón para notar transparencia */
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); 
 }
 
 .box-demo {
@@ -407,8 +407,8 @@ tr:hover {
     text-align: center;
 }
 
-/* --- ESTILOS PARA ANIMACIONES --- */
-/* --- ESTILOS ESPECÍFICOS PARA LA ANIMACIÓN DEL MARTILLO --- */
+/*  ESTILOS PARA ANIMACIONES */
+
 
 .escena-animacion {
     width: 100%;
@@ -423,7 +423,7 @@ tr:hover {
     padding-top: 50px;
 }
 
-/* Definición del martillo SVG */
+
 #martillo-simple:hover {
     animation: animacion_martillo_simple 2s;
 }
@@ -433,16 +433,16 @@ tr:hover {
     position: relative;
 }
 
-/* 3. Definimos las animaciones (@keyframes) */
 
-/* Animación Simple (Paso 3 del tutorial) */
+
+
 @keyframes animacion_martillo_simple {
     0% { transform: rotate(0deg); }
     50% { transform: rotate(90deg); }
     100% { transform: rotate(0deg); }
 }
 
-/* Animación Compleja (Clavando el clavo) */
+
 @keyframes animacion_martillo_complejo {
     0% { transform: rotate(0deg); top: 0px; }
     42% { transform: rotate(90deg); top: 57px; }
@@ -450,7 +450,7 @@ tr:hover {
     100% { transform: rotate(0deg); top: 0px; }
 }
 
-/* Estilo para el clavo */
+
 .clavo {
     position: absolute;
     bottom: 140px;
@@ -460,19 +460,19 @@ tr:hover {
     background: #aaa;
 }
 
-/* --- ESTILOS PARA CONTENIDO EDITABLE --- */
+/*  ESTILOS PARA CONTENIDO EDITABLE */
 #editable {
     width: 100%;
     max-width: 500px;
     height: 200px;
-    overflow: auto; /* Scroll vertical si el contenido excede el tamaño */
+    overflow: auto; 
     background: rgba(0, 0, 0, 0.4);
     border: 2px solid var(--neon-cyan);
     border-radius: var(--radius);
     padding: 20px;
     margin: 20px 0;
     color: white;
-    outline: none; /* Quita el borde azul por defecto al hacer clic */
+    outline: none; 
     transition: border-color 0.3s;
 }
 
@@ -498,7 +498,7 @@ tr:hover {
     box-shadow: 0 0 10px var(--neon-pink);
 }
 
-/* --- Dashboard de Tarjetas --- */
+
 .dashboard-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
