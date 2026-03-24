@@ -1,0 +1,544 @@
+/* --- VARIABLES Y RESET --- */
+:root {
+    --bg-dark: #05060b;
+    --neon-cyan: #00f0ff;
+    --neon-pink: #ff00d4;
+    --panel: rgba(10, 12, 20, 0.7);
+    --gap: 20px;
+    --radius: 12px;
+}
+
+* {
+    box-sizing: border-box; /* Crucial para evitar scroll lateral */
+}
+
+/* --- FONDO CON TRANSPARENCIA --- */
+body {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    background-color: #03040a; /* Color base oscuro */
+    min-height: 100vh;
+    color: var(--neon-cyan);
+    font-family: 'Segoe UI', Roboto, monospace;
+    overflow-x: hidden; /* Evita cualquier fuga de contenido lateral */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* Se queda fija mientras haces scroll */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Reemplaza la URL por la de tu imagen preferida */
+    background-image: url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.15; /* AJUSTA AQUÍ LA TRANSPARENCIA (0.1 a 0.3 recomendado) */
+    z-index: -1; /* Se coloca detrás de todo el contenido */
+    pointer-events: none; /* Evita que la imagen interfiera con los clics */
+}
+
+/* --- CONTENEDOR PRINCIPAL (CENTRADO) --- */
+.container {
+    max-width: 1600px;
+    width: 95%; /* Deja un margen del 5% a cada lado en móviles */
+    margin: 20px auto; /* Centra el bloque horizontalmente */
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+}
+
+/* --- HEADER Y MENÚ (EL PROBLEMA ESTABA AQUÍ) --- */
+header {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+header h1 {
+    color: var(--neon-pink);
+    text-shadow: 0 0 10px rgba(255, 0, 212, 0.5);
+    margin-bottom: 20px;
+}
+
+.header-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; /* HACE QUE LOS LINKS BAJEN SI NO CABEN */
+    justify-content: center; /* CENTRA LOS LINKS */
+    gap: 10px;
+}
+
+.header-menu a {
+    display: inline-block;
+    color: var(--neon-cyan);
+    text-decoration: none;
+    padding: 6px 12px;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.header-menu a:hover {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--neon-pink);
+    border-color: var(--neon-pink);
+}
+
+.volver {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.volver-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--neon-pink);
+    color: var(--bg-dark);
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    z-index: 10;
+}
+
+/* --- CONTENIDO --- */
+main {
+    background: var(--panel);
+    border-radius: var(--radius);
+    border: 1px solid rgba(0, 240, 255, 0.1);
+    padding: var(--gap);
+}
+
+details {
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 0, 212, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+summary {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--neon-pink);
+}
+
+article {
+    background: rgba(0, 0, 0, 0.2);
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--neon-cyan);
+}
+
+footer {
+    text-align: center;
+    padding: 30px;
+    opacity: 0.6;
+    font-size: 0.8rem;
+}
+
+/* --- AJUSTE PARA MÓVILES --- */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        margin: 20px auto;
+    }
+    
+    .header-menu ul {
+        gap: 5px;
+    }
+}
+
+/* --- ESTILOS PARA TRANSICIONES --- */
+/* Estilos base para los martillos interactivos */
+.martillo-container {
+    width: 100%;
+    height: 250px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--muted-2);
+    position: relative;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.martillo-obj {
+    width: 80px;
+    height: 80px;
+    background: var(--neon-cyan);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.martillo-svg {
+    width: 40px;
+    height: 40px;
+    fill: #000;
+}
+
+/* Ejemplo 1: Transición Única */
+#martillo-1 {
+    transition: left 1.5s;
+    -webkit-transition: left 1.5s;
+    left: 0;
+}
+#martillo-1:hover {
+    left: 400px;
+}
+
+/* Ejemplo 2: Múltiples Propiedades */
+#martillo-2 {
+    background-color: orange;
+    width: 100px;
+    height: 175px;
+    padding-left: 0;
+    padding-top: 0;
+    left: 0;
+    transition: left 1.5s, background-color 2s, width 1s, height 1s, padding-left 1s, padding-top 1s;
+    -webkit-transition: left 1.5s, background-color 2s, width 1s, height 1s, padding-left 1s, padding-top 1s;
+}
+#martillo-2:hover {
+    left: 400px;
+    background-color: black;
+    width: 225px;
+    height: 200px;
+    padding-left: 100px;
+    padding-top: 20px;
+}
+
+/* Ejemplo 3: Opacity y Retardo */
+#martillo-3 {
+    opacity: 1;
+    transition: opacity 2s ease-out 0.5s;
+    -webkit-transition: opacity 2s ease-out 0.5s;
+}
+#martillo-3:hover {
+    opacity: 0;
+}
+
+/* --- ESTILOS PARA TRANSFORMACIONES --- */
+/* Estilo base para el martillo de los ejemplos */
+.martillo-box {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed var(--muted-2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    position: relative;
+}
+.martillo-svg {
+    width: 50px;
+    height: 50px;
+    fill: var(--neon-cyan);
+    filter: drop-shadow(0 0 5px var(--neon-cyan));
+}
+
+/* --- ESTILOS PARA COLUMNAS --- */
+/* Estilos específicos para los ejemplos de columnas */
+.ejemplo-columnas {
+    background: rgba(255, 255, 255, 0.02);
+    padding: 20px;
+    border: 1px solid var(--neon-cyan);
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.lista-godos {
+    column-count: 4;
+    column-gap: 20px;
+    column-rule: 4px dotted var(--muted-2);
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Variaciones de líneas para los ejemplos finales */
+.rule-solid { column-rule: 4px solid var(--neon-cyan); }
+.rule-double { column-rule: 6px double var(--neon-pink); }
+.rule-dashed { column-rule: 4px dashed var(--neon-green); }
+
+/* --- ESTILOS DE TABLAS CYBERPUNK --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: rgba(0, 0, 0, 0.4); /* Fondo oscuro traslúcido */
+    border: 1px solid var(--neon-cyan);
+    font-family: 'Fira Code', monospace;
+}
+
+th, td {
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 15px;
+    text-align: center;
+}
+
+th {
+    background: rgba(0, 240, 255, 0.1);
+    color: var(--neon-pink);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+tr:hover {
+    background: rgba(255, 0, 212, 0.05); /* Efecto al pasar el mouse */
+}
+
+/* Colores para las celdas de compatibilidad */
+.check {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--neon-cyan);
+}
+
+.no-check {
+    color: var(--neon-pink);
+    opacity: 0.4;
+}
+
+/* --- ESTILOS PARA COLORES Y DEGRADADOS --- */
+.color-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+    margin-top: 10px;
+}
+
+/* --- ESTILOS PARA SVG --- */
+.flag-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius);
+}
+.flag-item {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted-2);
+}
+.svg-demo {
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px dashed var(--neon-cyan);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.color-sample {
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #000; /* Texto negro para que resalte en los colores claros */
+    text-shadow: none;
+}
+
+/* --- ESTILOS PARA RESPONSIVE --- */
+.demo-responsive {
+    padding: 20px;
+    text-align: center;
+    border: 2px solid var(--neon-cyan);
+    background: rgba(0, 240, 255, 0.1);
+    transition: all 0.5s ease;
+}
+
+.demo-responsive::after {
+    content: "ESCRITORIO (Monitor Grande)";
+    font-weight: bold;
+    color: var(--neon-pink);
+}
+
+/* Media Query de ejemplo */
+@media only screen and (max-width: 768px) {
+    .demo-responsive {
+        background: rgba(255, 0, 212, 0.1);
+        border-color: var(--neon-pink);
+    }
+    .demo-responsive::after {
+        content: "TABLET / MÓVIL (Pantalla Pequeña)";
+    }
+}
+
+.gradient-box {
+    width: 100%;
+    height: 150px;
+    border-radius: var(--radius);
+    margin: 15px 0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transparency-demo {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png'); /* Fondo patrón para notar transparencia */
+}
+
+.box-demo {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- ESTILOS PARA ANIMACIONES --- */
+/* --- ESTILOS ESPECÍFICOS PARA LA ANIMACIÓN DEL MARTILLO --- */
+
+.escena-animacion {
+    width: 100%;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px dashed var(--muted-2);
+    position: relative;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 50px;
+}
+
+/* Definición del martillo SVG */
+#martillo-simple:hover {
+    animation: animacion_martillo_simple 2s;
+}
+
+#martillo-complejo {
+    animation: animacion_martillo_complejo 2s infinite;
+    position: relative;
+}
+
+/* 3. Definimos las animaciones (@keyframes) */
+
+/* Animación Simple (Paso 3 del tutorial) */
+@keyframes animacion_martillo_simple {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(90deg); }
+    100% { transform: rotate(0deg); }
+}
+
+/* Animación Compleja (Clavando el clavo) */
+@keyframes animacion_martillo_complejo {
+    0% { transform: rotate(0deg); top: 0px; }
+    42% { transform: rotate(90deg); top: 57px; }
+    60% { transform: rotate(90deg); top: 57px; }
+    100% { transform: rotate(0deg); top: 0px; }
+}
+
+/* Estilo para el clavo */
+.clavo {
+    position: absolute;
+    bottom: 140px;
+    left: 55%;
+    width: 4px;
+    height: 20px;
+    background: #aaa;
+}
+
+/* --- ESTILOS PARA CONTENIDO EDITABLE --- */
+#editable {
+    width: 100%;
+    max-width: 500px;
+    height: 200px;
+    overflow: auto; /* Scroll vertical si el contenido excede el tamaño */
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid var(--neon-cyan);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin: 20px 0;
+    color: white;
+    outline: none; /* Quita el borde azul por defecto al hacer clic */
+    transition: border-color 0.3s;
+}
+
+#editable:focus {
+    border-color: var(--neon-pink);
+    box-shadow: 0 0 15px rgba(255, 0, 212, 0.2);
+}
+
+.btn-leer {
+    background: var(--neon-pink);
+    color: var(--bg-dark);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    transition: transform 0.2s;
+}
+
+.btn-leer:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px var(--neon-pink);
+}
+
+/* --- Dashboard de Tarjetas --- */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.nav-card {
+    background: rgba(0, 240, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    padding: 20px;
+    border-radius: var(--radius);
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.nav-card span {
+    color: var(--neon-cyan);
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.nav-card small {
+    color: var(--muted-2);
+    font-size: 0.8rem;
+}
+
+.nav-card:hover {
+    background: rgba(255, 0, 212, 0.05);
+    border-color: var(--neon-pink);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(255, 0, 212, 0.2);
+}
+
+.nav-card:hover span {
+    color: var(--neon-pink);
+    text-shadow: 0 0 8px var(--neon-pink);
+}
