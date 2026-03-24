@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Imágenes SVG - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>¿Qué son las imágenes SVG?</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="video.html">Vídeo</a></li>
+                    <li><a href="svg.html">SVG</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Gráficos Vectoriales Redimensionables</h2>
+                <article>
+                    <p>Con el elemento SVG (Scalable Vector Graphics) podemos crear imágenes vectoriales redimensionables de manera dinámica o interactiva utilizando diferentes atributos. Es aceptado en la mayoría de navegadores modernos.</p>
+                    <p>Atributos principales: <b>rect</b>, <b>circle</b>, <b>line</b>, <b>ellipse</b>, <b>polygon</b>, <b>polyline</b> y <b>text</b>.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplos rápidos: Banderas</h2>
+                <div class="flag-container">
+                    <div class="flag-item">
+                        <svg width="150" height="90" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="150" height="90" fill="white" stroke="black" stroke-width="1"/>
+                            <circle cx="75" cy="45" r="35" fill="red"/>
+                        </svg>
+                        <p>Japón</p>
+                    </div>
+                    <div class="flag-item">
+                        <svg width="150" height="90" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="50" height="90" fill="green" stroke="black" stroke-width="1"/>
+                            <rect x="50" y="0" width="50" height="90" fill="white" stroke="black" stroke-width="1"/>
+                            <rect x="100" y="0" width="50" height="90" fill="red" stroke="black" stroke-width="1"/>
+                        </svg>
+                        <p>Italia</p>
+                    </div>
+                    <div class="flag-item">
+                        <svg width="150" height="90" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="150" height="90" fill="red" stroke="black" stroke-width="1"/>
+                            <rect x="40" y="33" width="70" height="24" fill="white"/>
+                            <rect x="63" y="10" width="24" height="70" fill="white"/>
+                        </svg>
+                        <p>Suiza</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="part">
+                <h2>Atributos de dibujo</h2>
+                <article>
+                    <h3>Rectángulo (rect)</h3>
+                    <p>Propiedades: x, y, rx, ry (redondeado), width, height, fill, stroke.</p>
+                    <div class="svg-demo">
+                        <svg width="100" height="100">
+                            <rect x="20" y="20" rx="12" ry="12" width="60" height="60" fill="gold" stroke="green" stroke-width="2" opacity="0.8"/>
+                        </svg>
+                    </div>
+
+                    <h3>Círculo (circle)</h3>
+                    <p>Propiedades: cx, cy (centro), r (radio).</p>
+                    <div class="svg-demo">
+                        <svg width="200" height="200">
+                            <circle cx="100" cy="100" r="45" fill="olive" stroke="black" stroke-width="1" opacity="0.9"/>
+                        </svg>
+                    </div>
+
+                    <h3>Elipse (ellipse)</h3>
+                    <p>Propiedades: cx, cy, rx, ry (radios horizontal y vertical).</p>
+                    <div class="svg-demo">
+                        <svg width="200" height="150">
+                            <ellipse cx="100" cy="75" rx="50" ry="25" fill="purple" stroke="black" stroke-width="1"/>
+                        </svg>
+                    </div>
+
+                    <h3>Polígono (polygon)</h3>
+                    <p>Permite crear figuras cerradas uniendo puntos (parejas x,y).</p>
+                    <div class="svg-demo">
+                        <svg width="120" height="120">
+                            <polygon points="50,0, 62,37, 100,37, 70,61, 82,100, 50,75, 20,100, 31,61, 0,37, 39,37, 50,0" fill="gold" stroke="black" stroke-width="2"/>
+                        </svg>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Texto vectorial (text)</h2>
+                <article>
+                    <p>Permite dibujar texto que se puede seleccionar. Se puede rotar cada letra individualmente.</p>
+                    <div class="svg-demo">
+                        <svg width="200" height="100">
+                            <text x="30" y="50" rotate="17 0 -9 11 10 -3" font-size="40" fill="red" stroke="white" stroke-width="1">
+                                Javier
+                            </text>
+                        </svg>
+                    </div>
+                    <p><i>* Intenta seleccionar el nombre "Javier" de arriba; verás que se comporta como texto real.</i></p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Un truco útil</h2>
+                <article>
+                    <p>Si quieres mover todo un dibujo complejo sin cambiar cada coordenada, utiliza <code>transform="translate(x,y)"</code> al final del elemento.</p>
+                    <pre><code>&lt;text ... transform="translate(20,5)"&gt;Javier&lt;/text&gt;</code></pre>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

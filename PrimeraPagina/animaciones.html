@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Animaciones CSS3 - Tutorial</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Animaciones (Animation)</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="transformacion.html">Transform</a></li>
+                    <li><a href="transiciones.html">Transition</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Introducción a las animaciones</h2>
+                <article>
+                    <p>De una manera parecida a las transiciones, pero con una mayor potencialidad, en HTML5 tenemos a nuestra disposición las animaciones (animation).</p>
+                    <p>Primero vamos a hacer paso a paso que el martillo gire al colocar el cursor encima.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Paso a paso</h2>
+                <article>
+                    <h3>1. Creamos el objeto a animar</h3>
+                    <p>Primero, creamos dentro de un &lt;div&gt; el objeto, imagen o texto que realizará la animación.</p>
+                    <div class="escena-animacion">
+                        <div id="martillo-simple">
+                            <svg width="120" height="190" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="43" y="10" width="14" height="160" rx="6" ry="5" fill="#895111"/>
+                                <rect x="45" y="15" width="4" height="150" rx="6" ry="6" fill="#A68661"/>
+                                <rect x="10" y="22" width="80" height="45" rx="14" ry="12" fill="#6E6E5F"/>
+                                <rect x="20" y="37" width="62" height="24" rx="6" ry="6" fill="#898982"/>
+                                <rect x="20" y="25" width="62" height="6" rx="4" ry="4" fill="#C2C2B6"/>
+                                <rect x="43" y="67" width="14" height="9" fill="#482907"/>
+                            </svg>
+                        </div>
+                    </div>
+                    <p style="text-align: center;">(Sitúa el cursor encima del martillo para ver la animación simple)</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h3>2. Establecemos la animación</h3>
+                <article>
+                    <p>En el código CSS indicamos qué animación tendrá que reproducir, indicando un nombre y la duración:</p>
+                    <pre><code>#martillo { animation: animacion_martillo 2s; }</code></pre>
+                    <p>Valores opcionales:</p>
+                    <ul>
+                        <li><b>animation-timing-function:</b> Define la aceleración (linear, ease, ease-in, ease-out, ease-in-out).</li>
+                        <li><b>animation-iteration-count:</b> Número de repeticiones (infinite o número).</li>
+                        <li><b>animation-direction:</b> Dirección (normal o alternate).</li>
+                        <li><b>animation-delay:</b> Retardo antes de iniciar.</li>
+                        <li><b>animation-fill-mode:</b> Estado final (none, forwards, backwards).</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplo práctico complejo</h2>
+                <article>
+                    <p>Este ejemplo es más complejo, ya que mejora el movimiento para que el martillo gire de una manera más natural y clave el clavo, utilizando el parámetro <b>infinite</b>.</p>
+                    
+                    <div class="escena-animacion">
+                        <div class="clavo"></div>
+                        <div id="martillo-complejo">
+                            <svg width="120" height="190" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="43" y="10" width="14" height="160" rx="6" ry="5" fill="#895111"/>
+                                <rect x="45" y="15" width="4" height="150" rx="6" ry="6" fill="#A68661"/>
+                                <rect x="10" y="22" width="80" height="45" rx="14" ry="12" fill="#6E6E5F"/>
+                                <rect x="20" y="37" width="62" height="24" rx="6" ry="6" fill="#898982"/>
+                                <rect x="20" y="25" width="62" height="6" rx="4" ry="4" fill="#C2C2B6"/>
+                                <rect x="43" y="67" width="14" height="9" fill="#482907"/>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <p>Para que el martillo baje 57 píxeles y permanezca rotado un tiempo (del 42% al 60% de la animación), el código clave es:</p>
+                    <pre><code>@keyframes animacion_martillo {
+  0% { transform: rotate(0deg); top:0px; }
+  42% { transform: rotate(90deg); top:57px; }
+  60% { transform: rotate(90deg); top:57px; }
+  100% { transform: rotate(0deg); top:0px; }
+}</code></pre>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Compatibilidad</h2>
+                <article>
+                    <p>Todavía es necesario añadir los prefijos (-webkit-, -moz-, -o-) repitiendo todo el bloque de código <code>@keyframes</code> para asegurar que todos los navegadores entiendan las instrucciones.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

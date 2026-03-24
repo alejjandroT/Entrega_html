@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Colores y Degradados - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Colores, Transparencias y Degradados</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="video.html">Vídeo</a></li>
+                    <li><a href="colores.html">Colores</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Colores predefinidos</h2>
+                <article>
+                    <p>En HTML5 existen colores predefinidos que tienen nombres mucho más fáciles de recordar que sus respectivos códigos hexadecimales. Es mucho más fácil acordarse de nombres como 'Tomato' que de '#FF6347'. Ambas líneas tienen el mismo resultado:</p>
+                    <pre><code>color: tomato;
+color: #FF6347;</code></pre>
+                    
+                    <details>
+                        <summary>Ver paleta de Rojos y Amarillos</summary>
+                        <div class="color-grid">
+                            <div class="color-sample" style="background: IndianRed;">IndianRed</div>
+                            <div class="color-sample" style="background: DarkSalmon;">DarkSalmon</div>
+                            <div class="color-sample" style="background: Crimson;">Crimson</div>
+                            <div class="color-sample" style="background: FireBrick; color: #fff;">FireBrick</div>
+                            <div class="color-sample" style="background: Gold;">Gold</div>
+                            <div class="color-sample" style="background: OrangeRed;">OrangeRed</div>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>Ver paleta de Verdes y Azules</summary>
+                        <div class="color-grid">
+                            <div class="color-sample" style="background: Lime;">Lime</div>
+                            <div class="color-sample" style="background: ForestGreen; color: #fff;">ForestGreen</div>
+                            <div class="color-sample" style="background: SeaGreen; color: #fff;">SeaGreen</div>
+                            <div class="color-sample" style="background: Aqua;">Aqua</div>
+                            <div class="color-sample" style="background: RoyalBlue; color: #fff;">RoyalBlue</div>
+                            <div class="color-sample" style="background: Navy; color: #fff;">Navy</div>
+                        </div>
+                    </details>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Transparencias</h2>
+                <article>
+                    <p>En CSS3, se pueden definir transparencias utilizando <code>rgba(rojo, verde, azul, transparencia)</code> o la propiedad <code>opacity</code>.</p>
+                    <pre><code>background-color: rgba(255,0,0, 0.4);
+opacity: 0.4;</code></pre>
+
+                    <h3>Ejemplo de Transparencia RGBA:</h3>
+                    <div class="transparency-demo">
+                        <div class="box-demo" style="background-color: rgba(255,0,0, 0.4);">Rojo 40%</div>
+                        <div class="box-demo" style="background-color: rgba(255,0,0, 1.0);">Rojo 100%</div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Degradados lineales (linear-gradient)</h2>
+                <article>
+                    <p>Definimos dónde empieza (top, bottom, right, left) o un ángulo (45deg), seguido de los colores y opcionalmente su duración en porcentaje.</p>
+                    <pre><code>background: linear-gradient(top, red, gold);</code></pre>
+
+                    <h3>Ejemplos Aplicados:</h3>
+                    <p>Degradado de 30deg (crimson a purple):</p>
+                    <div class="gradient-box" style="background: linear-gradient(30deg, crimson, sienna, royalblue, indianred, purple);"></div>
+                    
+                    <p>Degradado con porcentajes (black 10%, orangered 75%, yellow):</p>
+                    <div class="gradient-box" style="background: linear-gradient(to bottom, black 10%, orangered 75%, yellow);"></div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Degradados radiales (radial-gradient)</h2>
+                <article>
+                    <p>Definimos el centro, la forma (circle o ellipse) y los colores. Los valores de expansión incluyen <code>closest-side</code>, <code>farthest-side</code>, <code>closest-corner</code> y <code>farthest-corner</code>.</p>
+                    
+                    <h3>Ejemplos Aplicados:</h3>
+                    <p>Radial Círculo (Black a #1162ac):</p>
+                    <div class="gradient-box" style="background: radial-gradient(circle, black, #1162ac);"></div>
+
+                    <p>Radial Elipse con porcentajes:</p>
+                    <div class="gradient-box" style="background: radial-gradient(ellipse, white 25%, peru 66%, black 96%);"></div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Compatibilidad con navegadores</h2>
+                <article>
+                    <p>Es necesario añadir los prefijos para asegurar el funcionamiento en la mayoría de navegadores modernos:</p>
+                    <pre><code>background: linear-gradient(top, red, gold);
+background: -webkit-linear-gradient(top, red, gold);
+background: -moz-linear-gradient(top, red, gold);
+background: -o-linear-gradient(top, red, gold);
+background: -ms-linear-gradient(top, red, gold);</code></pre>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

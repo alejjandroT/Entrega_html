@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Bordes y Líneas - Tutorial</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Líneas y Bordes en CSS</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="transiciones.html">Transiciones</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Líneas Separadoras Horizontales</h2>
+                <article>
+                    <p>La forma más rápida es utilizar la etiqueta <code>&lt;hr&gt;</code>. Crea una línea horizontal simple que admite estilos como grosor, color y tipo de línea.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <p>Línea neón punteada con 50% de ancho:</p>
+                    <hr style="border: none; border-top: 4px dotted var(--neon-pink); width: 50%; margin: 20px 0;">
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Líneas Separadoras Verticales</h2>
+                <article>
+                    <p>Se crean definiendo uno de los bordes laterales (<code>left</code> o <code>right</code>) de un contenedor <code>&lt;div&gt;</code>.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="display: flex; gap: 20px; align-items: center;">
+                        <div style="border-left: 4px solid var(--neon-cyan); padding: 10px 20px; background: rgba(0, 240, 255, 0.05);">
+                            Este bloque tiene una línea separadora a la izquierda (Neon Cyan).
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Bordes Simples</h2>
+                <article>
+                    <p>La propiedad <code>border</code> define grosor, estilo y color. Tipos comunes: <code>solid</code>, <code>dotted</code>, <code>dashed</code>, <code>inset</code> y <code>outset</code>.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px;">
+                        <div style="border: 2px dashed var(--neon-pink); padding: 10px; text-align: center;">Dashed Pink</div>
+                        <div style="border: 2px dotted var(--neon-cyan); padding: 10px; text-align: center;">Dotted Cyan</div>
+                        <div style="border: 4px double var(--neon-green); padding: 10px; text-align: center;">Double Green</div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Bordes Redondeados (Border Radius)</h2>
+                <article>
+                    <p>Permite suavizar las esquinas. Es vital definir un <code>width</code> y <code>height</code> si el elemento no tiene suficiente contenido interno.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                        <div style="width: 150px; height: 80px; border: 2px solid var(--neon-pink); border-radius: 20px; display: flex; align-items: center; justify-content: center;">
+                            Radius 20px
+                        </div>
+                        <div style="width: 150px; height: 80px; border: 2px solid var(--neon-cyan); border-radius: 40px 0 40px 0; display: flex; align-items: center; justify-content: center;">
+                            Mixto
+                        </div>
+                        <div style="width: 80px; height: 80px; border: 2px solid white; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            50%
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Suavizado por Esquina</h2>
+                <article>
+                    <p>Puedes controlar cada esquina de forma independiente usando propiedades como <code>border-top-left-radius</code>.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="border: 1px solid var(--muted-2); border-top-left-radius: 50px; padding: 20px; background: rgba(255,255,255,0.02);">
+                        Solo la esquina superior izquierda tiene un radio de 50px, creando un efecto de "pestaña" o "folder".
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Resultado Final Integrado</h2>
+                <article>
+                    <p>Combinando <code>padding</code>, <code>background-color</code> y <code>border-radius</code> obtenemos elementos profesionales:</p>
+                    <div style="width: 100%; background: #e3d193; color: #333; padding: 15px; border-radius: 15px; border: 4px solid brown; font-weight: bold; text-align: center;">
+                        
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

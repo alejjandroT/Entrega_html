@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Transformaciones - Tutorial HTML/CSS</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Transformaciones (Transform)</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="cajas-flotantes.html">Flotantes</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="transformacion.html">Transform</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>La propiedad transform</h2>
+                <article>
+                    <p>Con HTML5 y CSS3 podemos utilizar la propiedad 'transform' para modificar características de un &lt;div&gt; como la posición (position), la rotación (rotation), la escala (scale) o el -menos utilizado- el sesgo (skew).</p>
+                    <p>Este cambio de posición, tamaño o rotación se produce al instante (no hay animación en este cambio, para ello habría que utilizar 'transition' o 'animation').</p>
+                    <p>Para poder comprobar estas propiedades vamos a utilizar un DIV que contiene el dibujo sencillo de un martillo (creado con SVG). A este &lt;div&gt; le vamos a aplicar todas las transformaciones partiendo de su apariencia original.</p>
+                    
+                    <p>Es muy importante tener en cuenta que para que 'transform' funcione en todos los navegadores deberemos repetir las propiedades anteponiendo los prefijos:</p>
+                    <ul>
+                        <li><b>-webkit-</b> (Chrome y Safari)</li>
+                        <li><b>-moz-</b> (Firefox)</li>
+                        <li><b>-o-</b> (Opera)</li>
+                        <li><b>-ms-</b> (Internet Explorer)</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Desplazamiento (translate)</h2>
+                <article>
+                    <p>El movimiento se basa en la suma o resta de píxeles en su posición horizontal y vertical respecto a la posición en la que se encuentra el objeto en este momento. Con números positivos se desplaza hacia la derecha y hacia abajo y con números negativos hacia arriba y hacia la izquierda.</p>
+                    <pre><code>#martillo{ transform:translate(200px,5px); }</code></pre>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div class="martillo-box">
+                        <div style="transform: translate(40px, 10px);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Rotación (rotate)</h2>
+                <article>
+                    <p>La rotación se basa en los grados (de 0º a 360º). El eje siempre está en el centro del &lt;div&gt; y se especifica añadiendo 'deg'. Valores positivos rotan a la derecha, negativos a la izquierda.</p>
+                    <pre><code>#martillo{ transform:rotate(90deg); }</code></pre>
+                    
+                    <h3>Ejemplo Aplicado (90 grados):</h3>
+                    <div class="martillo-box">
+                        <div style="transform: rotate(90deg);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Escala (scale)</h2>
+                <article>
+                    <p>Se basa en una escala horizontal seguida de la vertical, siendo 1 la escala original. Un valor de '2' representaría el 200% (el doble de tamaño).</p>
+                    <pre><code>#martillo{ transform:scale(2,1.75); }</code></pre>
+                    
+                    <h3>Ejemplo Aplicado (Estirado):</h3>
+                    <div class="martillo-box">
+                        <div style="transform: scale(1.5, 0.7);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Sesgo (skew)</h2>
+                <article>
+                    <p>Define el sesgo horizontal y posteriormente el vertical. Se utilizan grados para la deformación.</p>
+                    <pre><code>#martillo{ transform:skew(10deg, 25deg); }</code></pre>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div class="martillo-box">
+                        <div style="transform: skew(20deg, 10deg);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Múltiples transformaciones simultáneas</h2>
+                <article>
+                    <p>Se pueden indicar tantas transformaciones como se deseen separándolas por un espacio.</p>
+                    <pre><code>#martillo{ transform:translate(200px, 0px) rotate(33deg) scale(0.5,0.5); }</code></pre>
+                    
+                    <h3>Ejemplo Combinado:</h3>
+                    <div class="martillo-box" style="height: 150px;">
+                        <div style="transform: translate(20px, 0px) rotate(33deg) scale(0.6);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

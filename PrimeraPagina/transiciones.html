@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Transiciones - Tutorial HTML/CSS</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Transiciones (Transition)</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="transformacion.html">Transform</a></li>
+                    <li><a href="transiciones.html">Transition</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Las transiciones (transition)</h2>
+                <article>
+                    <p>Las transiciones (transition) funcionan como pequeñas animaciones que siguen las mismas características que la etiqueta 'transform' (cambio de posición, tamaño, rotación...) aunque con la capacidad de poder especificar una duración para que se produzca dicha transformación y así poder utilizarla como una animación sencilla.</p>
+                    <p>Para poder observar su funcionamiento vamos a utilizar un &lt;div&gt; llamado 'martillo' que contiene el dibujo de un martillo (en SVG). Para activar cada ejemplo deberás pasar el cursor por encima.</p>
+                    <p>Es muy importante tener en cuenta que para que 'transition' funcione en todos los navegadores deberemos repetir la propiedad anteponiendo los prefijos:</p>
+                    <ul>
+                        <li><b>-webkit-</b> (Chrome y Safari), <b>-moz-</b> (Firefox), <b>-o-</b> (Opera), <b>-ms-</b> (Internet Explorer).</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Transición con una única propiedad</h2>
+                <article>
+                    <p>Cuando pases con el cursor por encima del martillo que hay bajo este texto se producirá una transición que durará 1 segundo y medio y que producirá que el &lt;div&gt; martillo se desplace horizontamente 400 píxeles hacia la derecha.</p>
+                    <pre><code>#martillo{ transition:left 1.5s; }
+#martillo:hover{ position:relative; left:400px; }</code></pre>
+
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div class="martillo-container">
+                        <div id="martillo-1" class="martillo-obj">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Transición con múltiples propiedades</h2>
+                <article>
+                    <p>Para especificar el cambio de varias propiedades con diferentes tiempos para cada una de ellas, únicamente tenemos que separar las diferentes propiedades con ",".</p>
+                    <p>Al pasar el cursor por encima, se producirán 6 cambios: movimiento (left), color de fondo, anchura, altura y paddings.</p>
+                    
+                    <pre><code>transition:left 1.5s, background-color 2s, width 1s, height 1s, padding-left 1s, padding-top 1s;</code></pre>
+
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div class="martillo-container" style="height: 300px;">
+                        <div id="martillo-2" class="martillo-obj">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Las palabras mágicas (Easing y Retardo)</h2>
+                <article>
+                    <p>Tenemos la posibilidad de especificar el tipo de movimiento (easing) y si debe existir algún retardo (delay) antes de empezar. La sintaxis es:</p>
+                    <pre><code>transition: [propiedad] [duración] [tipo-animación] [retardo];</code></pre>
+                    
+                    <h3>Tipos de animación comunes:</h3>
+                    <ul>
+                        <li><b>linear:</b> Velocidad uniforme.</li>
+                        <li><b>ease-in:</b> Empieza lento y acelera.</li>
+                        <li><b>ease-out:</b> Empieza rápido y decelera.</li>
+                        <li><b>ease-in-out:</b> Lento al inicio y al final.</li>
+                    </ul>
+
+                    <h3>Ejemplo Aplicado (Opacity 2s con retardo 0.5s):</h3>
+                    <div class="martillo-container" style="height: 120px; display: flex; justify-content: center; align-items: center;">
+                        <div id="martillo-3" class="martillo-obj" style="background: var(--neon-pink);">
+                            <svg class="martillo-svg" viewBox="0 0 512 512"><path d="M434.3 12.3c-23.4-23.4-61.4-23.4-84.8 0l-37.7 37.7c-5 5-5 13.1 0 18.1l29 29-160.7 160.7c-26.6-8.3-56.7-2.6-77.9 18.6l-80.1 80.1c-15.6 15.6-15.6 40.9 0 56.6l45.3 45.3c15.6 15.6 40.9 15.6 56.6 0l80.1-80.1c21.2-21.2 26.9-51.3 18.6-77.9l160.7-160.7 29 29c5 5 13.1 5 18.1 0l37.7-37.7c23.5-23.4 23.5-61.4 .1-84.8z"/></svg>
+                        </div>
+                    </div>
+                    <p style="text-align: center;">Pasa el mouse: espera 0.5s y se desvanece en 2s.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Compatibilidad con todos los navegadores</h2>
+                <article>
+                    <p>Para garantizar la compatibilidad con navegadores antiguos, es conveniente utilizar los prefijos. El código de ejemplo quedaría así:</p>
+                    <pre><code>#martillo{
+   transition: opacity 2s ease-out 0.5s;
+   -webkit-transition: opacity 2s ease-out 0.5s;
+   -moz-transition: opacity 2s ease-out 0.5s;
+   -o-transition: opacity 2s ease-out 0.5s;
+}</code></pre>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

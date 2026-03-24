@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Múltiples Resoluciones - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Múltiples resoluciones (Media Queries)</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="video.html">Vídeo</a></li>
+                    <li><a href="svg.html">SVG</a></li>
+                    <li><a href="responsive.html">Responsive</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>¿Qué son las media queries?</h2>
+                <article>
+                    <p>Los llamados <b>media queries</b> son una serie de funciones que incorpora CSS3 para que las páginas web se adapten "racionalmente" o adopten una maquetación diferente según la resolución en la que se muestre la página web.</p>
+                    <p>Para intentar agrupar resoluciones en grupos estándares, podemos utilizar los siguientes:</p>
+                    <ul>
+                        <li><b>Menores de 480px:</b> para móviles.</li>
+                        <li><b>De 481px a 768px:</b> para tablets.</li>
+                        <li><b>Mayores de 768px:</b> para ordenadores.</li>
+                    </ul>
+                </article>
+            </section>
+
+            
+
+            <section class="part">
+                <h2>¿Dónde colocarlos y cómo funcionan?</h2>
+                <article>
+                    <p>Este código CSS se suele añadir al final de los estilos. Un mediaquerie agrupa diferentes selectores e identifica en qué condiciones se deben ejecutar.</p>
+                    <pre><code>@media only screen and (max-width:320px){
+  body{ background-color:red; }
+  #bloque1{ font-size:12px; }
+}</code></pre>
+                    <p>En este ejemplo, si la resolución es menor que 320px, el fondo será rojo. Si no se cumple, se ejecutan los selectores normales.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Sintaxis y Rango</h2>
+                <article>
+                    <p>El parámetro principal tiene dos posibilidades:</p>
+                    <ul>
+                        <li><b>max-width:</b> "Cuando la resolución sea menor que...".</li>
+                        <li><b>min-width:</b> "Cuando la resolución sea mayor que...".</li>
+                    </ul>
+                    <p>También se pueden combinar rangos:</p>
+                    <pre><code>@media only screen and (min-width:320px) and (max-width:480px){ ... }</code></pre>
+                    
+                    <h3>Demostración Visual Interactiva:</h3>
+                    <div class="demo-responsive">
+                        <p>Estado actual: </p>
+                    </div>
+                    <p><small>(Si estás en PC, intenta hacer la ventana del navegador más estrecha para ver cómo cambia el color y el texto de la caja superior).</small></p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Exclusivo para móviles y tablets: Viewport</h2>
+                <article>
+                    <p>Para que el contenido no se escale automáticamente y se vea muy pequeño, debemos configurar el <b>viewport</b> en el <code>&lt;head&gt;</code>:</p>
+                    <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></pre>
+                    <ul>
+                        <li><b>width=device-width:</b> Adapta el contenido al ancho real del dispositivo.</li>
+                        <li><b>initial-scale=1:</b> Configura la escala inicial al 100%.</li>
+                        <li><b>maximum-scale:</b> Grado máximo de zoom permitido al usuario.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Uso del Viewport y Mediaqueries</h2>
+                <article>
+                    <p>Para que los mediaqueries funcionen correctamente es <b>imprescindible</b> la utilización del metadata "viewport". Sin él, el móvil escalará la página entera y los mediaqueries carecerán de utilidad.</p>
+                    
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Configuración</th>
+                                <th>Resultado en Móvil</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Sin Mediaqueries / Sin Viewport</td>
+                                <td>Se escala todo para verse entero (muy pequeño).</td>
+                            </tr>
+                            <tr>
+                                <td>Con Mediaqueries / Con Viewport</td>
+                                <td><b>Resultado Óptimo:</b> El diseño cambia y el tamaño es legible.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

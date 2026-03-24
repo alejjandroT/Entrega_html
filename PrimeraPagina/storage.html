@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Web Storage - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Web Storage</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="video.html">Vídeo</a></li>
+                    <li><a href="responsive.html">Responsive</a></li>
+                    <li><a href="storage.html">Storage</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Ejemplo práctico de lo qué es Storage</h2>
+                <article>
+                    <p>Para hacernos una idea más rápidamente de qué es y de las posibilidades de Storage vamos a empezar el tema con un ejemplo práctico. Si esta es la primera vez que accedes a esta página y no has rellenado antes el formulario siguiente (como no habrá información guardada al respecto) en el siguiente cuadro el navegador te pedirá tu nombre ya que no lo sabe. Si escribes tu nombre y pulsas en el botón 'Guardar', las siguientes veces que accedas a esta página el navegador ya sabrá tu nombre y automáticamente te saludará por él.</p>
+                    
+                    <div style="background: rgba(0, 240, 255, 0.05); padding: 20px; border: 1px solid var(--neon-cyan); border-radius: 8px; text-align: center;">
+                        <h3 style="color: var(--neon-pink);">¡Vaya!, no sé cómo te llamas</h3>
+                        <p>Escribe debajo tu nombre</p>
+                        <input type="text" placeholder="Tu nombre..." style="padding: 8px; border-radius: 4px; border: 1px solid var(--neon-cyan); background: #000; color: white;">
+                        <button class="volver-btn" style="position: static; margin-left: 10px;">Guardar</button>
+                    </div>
+
+                    <p style="margin-top: 20px;">Segunda oportunidad.. Si deseas borrar todos los datos localStorage (para probar esta página como si fuera la primera vez), pulsa el siguiente botón y luego recarga la página:</p>
+                    <button style="background: var(--neon-pink); border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold; color: #000;">Borrar todo</button>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Tipos de datos guardados</h2>
+                <article>
+                    <p>Con HTML5 ya es posible guardar datos (locales) en el ordenador del usuario sin limitación de tiempo, sin que estos datos se borren en cada sesión, con una limitación de tamaño de hasta 5 Mb, sin tener que disponer de ningún servidor, ni base de datos y sin tener que utilizar cookies.</p>
+                    <p>Existen dos tipos de almacenamiento (de corta y larga duración):</p>
+                    <ul>
+                        <li><b>sessionStorage:</b> Los datos guardados permanecen mientras el usuario tiene el navegador abierto. Al cerrar el navegador los datos se borran automáticamente.</li>
+                        <li><b>localStorage:</b> Los datos guardados permanecen siempre, incluso si se cierra el navegador y se apaga el ordenador.</li>
+                    </ul>
+                    <p>Es importante señalar que la información guardada es accesible sólo desde el mismo navegador que ha guardado los datos. El localStorage de Chrome es diferente al de Firefox.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Las palabras mágicas</h2>
+                <article>
+                    <p>Aunque la utilización de localStorage es bastante sencilla hay que tener en cuenta que funciona bajo javaScript, por lo que el código correspondiente lo tendremos que colocar dentro del &lt;head&gt;, entre estas dos etiquetas:</p>
+                    <pre><code>&lt;script type="text/javascript"&gt;
+&lt;/script&gt;</code></pre>
+
+                    <h3>Guardar un dato</h3>
+                    <p>Para guardar un valor tenemos que proporcionar 3 datos: a) localStorage o sessionStorage, b) Un nombre que le daremos a esa información y c) La información a guardar.</p>
+                    <pre><code>localStorage.nombre='Javier';</code></pre>
+
+                    <h3>Recuperar la información</h3>
+                    <p>Para leer o recuperar la información necesitamos también 3 datos: a) localStorage o sessionStorage, b) El nombre que le dimos a esa información y c) Una variable o un alert.</p>
+                    <pre><code>alert('La información recuperada ha sido '+ localStorage.nombre);</code></pre>
+
+                    <h3>Eliminar datos</h3>
+                    <p>Para eliminar únicamente un dato:</p>
+                    <pre><code>localStorage.removeItem('nombre');</code></pre>
+                    <p>Para eliminar todos los datos existentes:</p>
+                    <pre><code>localStorage.clear();
+sessionStorage.clear();</code></pre>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplo práctico paso a paso</h2>
+                <article>
+                    <p>Se trata de un contador que va contando las veces que hemos entrado en esta página con este navegador.</p>
+                    <div style="font-size: 1.2rem; text-align: center; padding: 20px; border: 1px dashed var(--neon-pink);">
+                        Visitas: 1 veces.
+                    </div>
+                    <p>Dentro del &lt;head&gt;, añadimos el siguiente código:</p>
+                    <pre><code>&lt;script type="text/javascript"&gt;
+   if (localStorage.veces==undefined){
+      localStorage.veces=1;
+   } else {
+      localStorage.veces=Number(localStorage.veces)+1;
+   }
+   document.write("Visitas: "+localStorage.veces+" veces.");
+&lt;/script&gt;</code></pre>
+                    <p>El 'Number' sirve para que sume 1 y no añada 1, ya que si a 1 se le añade 1 el resultado es 11, pero si a 1 se le suma 1 el resultado es 2.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

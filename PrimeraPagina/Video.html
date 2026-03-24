@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Video en HTML</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Video en HTML</h1>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="index.html#bordes">Bordes</a></li>
+                    <li><a href="index.html#sombras">Sombras</a></li>
+                    <li><a href="index.html#cajas-flotantes">Cajas Flotantes</a></li>
+                    <li><a href="index.html#posicion">Posición</a></li>
+                    <li><a href="index.html#transformacion">Transformación</a></li>
+                    <li><a href="index.html#transiciones">Transiciones</a></li>
+                    <li><a href="index.html#frame-columna">Frame columna</a></li>
+                    <li><a href="index.html#video">Video</a></li>
+                    <li><a href="index.html#audio">Audio</a></li>
+                    <li><a href="index.html#transparencia">Transparencia</a></li>
+                    <li><a href="index.html#animaciones">Animaciones</a></li>
+                    <li><a href="index.html#svg">SVG</a></li>
+                    <li><a href="index.html#responsive">Responsive</a></li>
+                    <li><a href="index.html#contenido-editable">Contenido Editable</a></li>
+                    <li><a href="index.html#storage">Storage</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section>
+                <h2>Diferentes estándares de vídeo</h2>
+                <p>Aunque el código HTML5 para la inserción de vídeo directamente en HTML5 es muy sencillo, todavía tiene un único inconveniente. No todos los navegadores aceptan todos los formatos de vídeo existentes. De hecho de los 3 estándares existentes, el único navegador que los acepta a todos es Chrome.</p>
+                <p>Así que, si queremos que el vídeo se pueda visualizar en todos los navegadores tendremos que añadir el mismo vídeo en distintos formatos.</p>
+                <p>Actualmente existen 3 estándares de vídeo que utilizan códecs diferentes y que vienen impulsados por grandes empresas.</p>
+                <ul>
+                    <li>El formato MP4 (ficheros con extensión .mp4 o .mov) que bajo licencia utiliza el códec H264 (el mismo que utiliza Flash). Es impulsado por Apple y Microsoft.</li>
+                    <li>El formato OGG (ficheros con extensión .ogv) que utiliza el códec On2VP8 es gratuito. Impulsado por Mozilla, Opera y Firefox.</li>
+                    <li>El formato WebM (ficheros con extensión .webm) también es gratuito e impulsado por los mismos que apoyan el formato OGG (Mozilla, Opera y Firefox).</li>
+                </ul>
+                <h3>Compatibilidad con navegadores</h3>
+                <p>La tabla de los diferentes formatos de vídeo aceptados por los diferentes navegadores queda así:</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>MP4</th>
+                            <th>OGG</th>
+                            <th>WebM</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Firefox</td>
+                            <td>-</td>
+                            <td>+3.5</td>
+                            <td>+4.0</td>
+                        </tr>
+                        <tr>
+                            <td>Chrome</td>
+                            <td>+3.0</td>
+                            <td>+3.0</td>
+                            <td>+3.0</td>
+                        </tr>
+                        <tr>
+                            <td>Opera</td>
+                            <td>-</td>
+                            <td>+10.5</td>
+                            <td>+10.6</td>
+                        </tr>
+                        <tr>
+                            <td>Safari</td>
+                            <td>+3.1</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>IExplorer</td>
+                            <td>+IE9</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            <section>
+                <h2>&lt;video&gt;</h2>
+                <p>El código HTML estándar para visualizar un único formato de vídeo sería:</p>
+                <pre><code>&lt;video&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+&lt;/video&gt;</code></pre>
+                <p>En el tag &lt;video&gt; es posible incorporar un gran número de atributos que nos ayudan a poder controlar mejor el video, como son:</p>
+                <ul>
+                    <li><strong>width:</strong> Indica la anchura del vídeo, expresada en píxeles (px) o en porcentaje (%)</li>
+                    <li><strong>height:</strong> Indica la altura del vídeo, expresada en píxeles (px) o en porcentaje (%)</li>
+                    <li><strong>controls:</strong> Establece si tendrá la barra de navegación (play, stop, volumen...) o no</li>
+                    <li><strong>autoplay:</strong> Indica si el vídeo se inicia detenido o ya aparece por defecto reproduciéndose</li>
+                    <li><strong>loop:</strong> Establece si al acabar el vídeo, éste debe volver a empezar o no</li>
+                    <li><strong>muted:</strong> Indica si el audio se reproduce o se reproduce sin audio</li>
+                    <li><strong>preload:</strong> Indica si el vídeo se empieza a cargar cuando el navegador carga la página html</li>
+                    <li><strong>poster:</strong> Da la posibilidad de establecer una imagen (jpg, gif o png) como fotograma inicial del video</li>
+                </ul>
+                <p>Por lo tanto, si utilizásemos todos los atributos, el código anterior quedaría de la siguiente manera:</p>
+                <pre><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+&lt;/video&gt;</code></pre>
+                <p>Si queremos que el vídeo se pueda visualizar desde cualquier navegador (que soporte HTML5), tenemos que añadir a este código más posibilidades y por lo tanto tenemos que tener el vídeo grabado en diferentes formatos.</p>
+                <p>El código HTML completo quedaría así:</p>
+                <pre><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+   &lt;source src="video.mp4" type="video/mp4"/&gt;
+   &lt;source src="video.webm" type="video/webm"/&gt;
+   &lt;p&gt;Tu navegador no soporta HTML5&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+                <h3>Ejemplo práctico</h3>
+                <p>Si además queremos asegurarnos de que el vídeo también se podrá visualizar en navegadores antiguos tendremos que añadir la posibilidad de visualizar el vídeo en el formato de Flash (.flv), que es soportado por todos los navegadores, quedando el código de la siguiente manera:</p>
+                <pre><code>&lt;video width="800" height="600" controls autoplay loop poster="fotograma.png"&gt;
+   &lt;source src="video.ogv" type="video/ogg"/&gt;
+   &lt;source src="video.mp4" type="video/mp4"/&gt;
+   &lt;source src="video.webm" type="video/webm"/&gt;
+	  
+   &lt;object width="800" height="600" data="video.flv"&gt;
+   &lt;param name="movie" value="video.flv"&gt;
+   &lt;embed src="video.flv" width="800" height="600"&gt;
+   &lt;/object&gt;
+
+   &lt;p&gt;Tu navegador no soporta HTML5&lt;/p&gt;
+&lt;/video&gt;</code></pre>
+                <p>En este ejemplo se han utilizado únicamente los atributos 'width', 'height', 'controls' y 'poster', evitando utilizar la opción 'autoplay' (ya que no nos interesa que el video se reproduzca automáticamente al cargar la página).</p>
+            </section>
+            <section>
+                <h2>Añadir un vídeo de Youtube</h2>
+                <p>Para añadir un vídeo de Youtube lo único que tenemos que hacer es:</p>
+                <ol>
+                    <li>Ir a la web de www.youtube.com y acceder al vídeo que quieras añadir a tu web.</li>
+                    <li>Hacer clic con el botón derecho del ratón sobre el vídeo</li>
+                    <li>Seleccionar la opción "Copiar código de inserción".</li>
+                    <li>Ya dentro del editor de HTML, crear un DIV y pegar dentro el contenido que se ha copiado en el punto anterior, que será algo parecido al siguiente código:</li>
+                </ol>
+                <pre><code>&lt;iframe width="640" height="360" src="http://www.youtube.com/embed/
+_93kDSPlKIM?feature=player_detailpage" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</code></pre>
+                
+                <h3>Ejemplo práctico - Nirvana: Smells Like Teen Spirit</h3>
+                <p>A continuación se muestra un ejemplo de un vídeo de YouTube incrustado en la página:</p>
+                <div class="video-container">
+                    <iframe width="1383" height="778" src="https://www.youtube.com/embed/hTWKbfoikeg?list=RDhTWKbfoikeg" title="Nirvana - Smells Like Teen Spirit (Official Music Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <p>Este es un ejemplo real de cómo se visualiza un vídeo de YouTube inccrustado directamente en tu página web.</p>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML</p>
+        </footer>
+    </div>
+</body>
+</html>

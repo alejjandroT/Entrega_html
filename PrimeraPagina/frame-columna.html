@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Columnas de Texto - Tutorial HTML/CSS</title>
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Columnas de Texto</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="cajas-flotantes.html">Flotantes</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="columnas.html">Columnas</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Textos en columnas</h2>
+                <article>
+                    <p>Con HTML5 y CSS3 se pueden crear textos en columnas de una manera muy sencilla, pudiendo configurar tanto el espacio existente entre las columnas como las líneas de separación entre columnas.</p>
+                    <p>Para ello utilizamos el siguiente código CSS3:</p>
+                    <ul>
+                        <li><b>column-count:2;</b> Definimos el número de columnas.</li>
+                        <li><b>column-gap:10px;</b> Definimos el espacio mínimo entre columnas.</li>
+                        <li><b>column-rule:4px dotted gray;</b> Definimos el grosor, tipo y color de la línea separadora.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplo práctico paso a paso</h2>
+                <article>
+                    <h3>1. Escribimos el texto que irá en columnas</h3>
+                    <p>Lo primero que tenemos que hacer es escribir lo que irá en columnas dentro de un &lt;div&gt; que en este caso tendrá un id="columnas":</p>
+                    <pre><code>&lt;div id="columnas"&gt;
+     &lt;li&gt;Ataúlfo&lt;/li&gt;
+     &lt;li&gt;Sigerico&lt;/li&gt;
+     ...
+&lt;/div&gt;</code></pre>
+                    
+                    <h3>2. Indicamos las características de las columnas</h3>
+                    <p>Seguidamente el código CSS haciendo referencia al id llamado 'columnas':</p>
+                    <pre><code>#columnas{
+   column-count:4;
+   column-gap:20px;
+   column-rule:4px dotted gray;
+   list-style: none;
+}</code></pre>
+
+                    <h3>Resultado Aplicado (Reyes Godos):</h3>
+                    <div class="ejemplo-columnas">
+                        <div class="lista-godos">
+                            <li>Ataúlfo</li>
+                            <li>Sigerico</li>
+                            <li>Walia</li>
+                            <li>Teodoredo</li>
+                            <li>Turismundo</li>
+                            <li>Teodorico</li>
+                            <li>Eurico</li>
+                            <li>Alarico II</li>
+                            <li>Gesaleico</li>
+                            <li>Amalarico</li>	
+                            <li>Teudis</li>
+                            <li>Teudiselo</li>				
+                            <li>Agila I</li>
+                            <li>Atanagildo</li>
+                            <li>Liuva I</li>
+                            <li>Leovigildo</li>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Tipos de líneas separadoras</h2>
+                <article>
+                    <p>Existen diversas posibilidades para los separadores (<code>column-rule</code>): <b>none, solid, dotted, dashed, double, groove, ridge, inset, outset</b>.</p>
+                    
+                    <h3>Ejemplo con línea Sólida (Neon Cyan):</h3>
+                    <div class="ejemplo-columnas">
+                        <div class="lista-godos rule-solid">
+                            <li>Ataúlfo</li><li>Sigerico</li><li>Walia</li><li>Teodoredo</li><li>Turismundo</li><li>Teodorico</li><li>Eurico</li><li>Alarico II</li>
+                        </div>
+                    </div>
+
+                    <h3>Ejemplo con línea Doble (Neon Pink):</h3>
+                    <div class="ejemplo-columnas">
+                        <div class="lista-godos rule-double">
+                            <li>Gesaleico</li><li>Amalarico</li><li>Teudis</li><li>Teudiselo</li><li>Agila I</li><li>Atanagildo</li><li>Liuva I</li><li>Leovigildo</li>
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Compatibilidad con todos los navegadores</h2>
+                <article>
+                    <p>Como los diferentes navegadores todavía no han podido ponerse de acuerdo en una sintaxis compartida, debemos repetir el código anteponiendo los prefijos:</p>
+                    <pre><code>#columnas{
+   column-count:4;
+   -webkit-column-count:4;
+   -moz-column-count:4;
+   -o-column-count:4;
+   -ms-column-count:4;
+}</code></pre>
+                    <p>Con este código (casi) todos los navegadores que aceptan HTML5 podrán entender lo mismo y ofrecer (casi) el mismo resultado.</p>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

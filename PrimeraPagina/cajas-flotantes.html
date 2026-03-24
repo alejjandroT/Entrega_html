@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Uso de Float - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Uso de float</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="cajas-flotantes.html">Cajas Flotantes</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>La propiedad float</h2>
+                <article>
+                    <p>La propiedad float sirve para alinear cajas o &lt;divs&gt; a la izquierda o a la derecha de otras cajas, utilizando el valor float:left o float:right. Al usar float hay que tener claro una serie de cuestiones:</p>
+                    <ul>
+                        <li>Para alinear varias cajas (o &lt;divs&gt;) una a la derecha de la otra, todas las cajas tienen que tener un width determinado y un float.</li>
+                        <li>La suma de todos los width de todas las cajas deben caber en el ancho del &lt;body&gt;. Si no caben se pondrá una debajo de la otra.</li>
+                        <li>Por lo general, en todas las cajas se utiliza el mismo tipo de alineación (o todas left o todas right).</li>
+                        <li>Aunque se quiera colocar una caja a la derecha de otra, se utiliza float:left, ya que el valor right indica que las cajas se alinearían desde la parte derecha de la ventana del navegador.</li>
+                        <li>La siguiente caja que venga después de la última caja que utiliza un float, (aunque no tenga ningún valor float), se alineará en el espacio vacio que deje la alineación anterior. Para evitar esto, a esta nueva caja se le debe añadir la declaración: clear:both;. De esta manera no aprovechará el espacio vacio que pudiera quedar y se colocará correctamente debajo de la última caja.</li>
+                    </ul>
+
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="overflow: hidden; background: rgba(0,240,255,0.05); padding: 15px; border: 1px dashed var(--neon-cyan);">
+                        <div style="float: left; width: 45%; background: var(--neon-pink); color: #000; padding: 10px; text-align: center;">Caja 1 (float: left)</div>
+                        <div style="float: left; width: 45%; background: var(--neon-cyan); color: #000; padding: 10px; text-align: center; margin-left: 5%;">Caja 2 (float: left)</div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplo práctico del uso de float</h2>
+                <article>
+                    <p>Tenemos dos cajas (o &lt;divs&gt;), etiquetadas con los id="caja1" e id="caja2". La primera (#caja1) contiene una imagen de 200 x 133 píxeles, mientras que #caja2 contiene un texto centrado verticalmente. Para que ambas cajas no se sitúen una debajo de la otra (como es lo habitual), tenemos que añadir un width y un float a cada caja:</p>
+                    <pre><code>#caja1{ width:200px; float:left; margin-right:15px; }
+#caja2{ width:200px; float:left; }</code></pre>
+
+                    <h3>Resultado del Ejemplo:</h3>
+                    <div style="display: inline-block; width: 100%; border: 1px solid var(--neon-cyan); padding: 15px;">
+                        <div style="float: left; width: 200px; height: 133px; background: #333; margin-right: 15px; display: flex; align-items: center; justify-content: center; border: 1px solid var(--neon-pink);">
+                            [ Imagen 200x133 ]
+                        </div>
+                        <div style="float: left; width: 250px;">
+                            <h3 style="color: var(--neon-pink); margin: 0;">Dentista económico</h3>
+                            <p>Grandes ofertas<br>Sin listas de espera<br>Quirófano disponible</p>
+                        </div>
+                    </div>
+                    <p>El problema que tenemos es que ahora queda un espacio vacío muy grande a la derecha de #caja2 (justamente en el espacio que ocupa este mismo texto). Así, cualquier cosa que pongamos en el código html DETRÁS de #caja2, aunque no le asignemos ningún float se colocará en este espacio vacío. Para que este &lt;div&gt; se coloque debajo, le tendríamos que aplicar la declaración CSS float:both.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>clear:both</h2>
+                <article>
+                    <p>La mayoría de problemas de colocación que se producen al utilizar la propiedad float se pueden solucionar de dos maneras: Utilizando clear:both es la solución socorrida, aunque tremendamente efectiva. Si a la primera caja que viene detrás de la última caja que tiene la propiedad float se le aplica clear:both;, NO aprovechará el espacio que queda libre y dicho &lt;div&gt; se colocará debajo de la caja anterior.</p>
+                    <pre><code>#caja_descolocada{ clear:both; }</code></pre>
+
+                    <h3>Ejemplo Aplicado de clear:both:</h3>
+                    <div style="background: rgba(255,255,255,0.02); padding: 10px;">
+                        <div style="float: left; width: 100px; height: 40px; background: white; color: black; text-align: center; line-height: 40px;">Float</div>
+                        <div style="clear: both; margin-top: 10px; border-top: 1px solid var(--neon-pink); padding-top: 10px;">
+                            Este texto usa <b>clear: both</b>, por lo que se posiciona correctamente debajo del float.
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Utilizando &lt;div&gt; contenedores</h2>
+                <article>
+                    <p>Utilizando &lt;div&gt; contenedores es la forma más elegante y correcta, aunque también la menos utilizada. Consiste en meter #caja1 y #caja2 dentro de otro &lt;div&gt;, al que le daremos -al menos- una altura (height) determinada o un display:inline-block; para que automáticamente la altura se adapte al contenido.</p>
+                    
+                    <h3>Ejemplo de Estructura:</h3>
+                    <div style="display: inline-block; width: 100%; border: 1px solid var(--neon-green); padding: 15px; border-radius: 8px;">
+                        <div style="float: left; width: 45%; border: 1px solid var(--neon-cyan); padding: 10px;">Caja 1 interna</div>
+                        <div style="float: left; width: 45%; border: 1px solid var(--neon-cyan); padding: 10px; margin-left: 5%;">Caja 2 interna</div>
+                    </div>
+                    <p><br>A esta estructura HTML le tenemos que añadir los correspondientes selectores CSS:</p>
+                    <pre><code>#cajas{ height:131px; }
+#caja1{ width:395px; float:left; margin-right:15px; }
+#caja2{ width:300px; float:left; }</code></pre>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

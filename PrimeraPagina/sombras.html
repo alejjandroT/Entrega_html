@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Sombras - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Sombras en Elementos y Textos</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="transiciones.html">Transiciones</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Sombras de Caja (box-shadow)</h2>
+                <article>
+                    <p>La propiedad <code>box-shadow</code> permite añadir sombras a elementos como <code>&lt;div&gt;</code>, <code>&lt;article&gt;</code> o <code>&lt;section&gt;</code>.</p>
+                    <ul>
+                        <li><b>1er valor:</b> Desviación horizontal.</li>
+                        <li><b>2do valor:</b> Desviación vertical.</li>
+                        <li><b>3er valor:</b> Suavidad o desenfoque (blur).</li>
+                        <li><b>4to valor:</b> Color de la sombra.</li>
+                    </ul>
+                    
+                    <h3>Ejemplos Aplicados:</h3>
+                    <div style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; padding: 20px;">
+                        <div style="width: 200px; padding: 20px; background: var(--panel); border: 1px solid var(--neon-cyan); box-shadow: 10px 10px 20px black;">
+                            Sombra Suave (20px blur)
+                        </div>
+                        <div style="width: 200px; padding: 20px; background: var(--panel); border: 1px solid var(--neon-pink); box-shadow: 10px 10px 1px black;">
+                            Sombra Dura (1px blur)
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Sombras Internas (inset)</h2>
+                <article>
+                    <p>Para que la sombra aparezca dentro del elemento, simplemente añadimos la palabra clave <code>inset</code> al final de la declaración.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="width: 100%; max-width: 400px; margin: 0 auto; padding: 30px; background: #000; border: 1px solid var(--neon-cyan); box-shadow: 0px 0px 15px var(--neon-cyan) inset;">
+                        Efecto de "Caja Hundida" con Inset Cyan
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Creación de "Halos" o Resplandores</h2>
+                <article>
+                    <p>Si establecemos los dos primeros valores (desviación) en <code>0px</code>, la sombra rodeará al elemento uniformemente, creando un efecto de brillo o neón.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="display: flex; justify-content: center; padding: 40px;">
+                        <div style="width: 100px; height: 100px; border-radius: 50%; background: var(--neon-pink); box-shadow: 0px 0px 30px var(--neon-pink);">
+                        </div>
+                    </div>
+                    <p style="text-align: center;">Resplandor 0px 0px 30px Pink</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Sombras en Textos (text-shadow)</h2>
+                <article>
+                    <p>Funciona igual que box-shadow pero se aplica directamente a las letras. Es ideal para mejorar la legibilidad o dar efectos futuristas.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <h2 style="text-align: center; font-size: 3rem; color: white; text-shadow: 5px 5px 10px var(--neon-cyan);">
+                        TEXTO CYBER
+                    </h2>
+                    <h2 style="text-align: center; font-size: 3rem; color: var(--neon-pink); text-shadow: 0 0 20px var(--neon-pink);">
+                        GLOW EFFECT
+                    </h2>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Múltiples Sombras</h2>
+                <article>
+                    <p>Podemos aplicar varias sombras separándolas por comas. Esto permite combinar efectos internos y externos al mismo tiempo.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="
+                        width: 100%; 
+                        max-width: 500px; 
+                        margin: 20px auto; 
+                        padding: 20px; 
+                        background: rgba(0,0,0,0.5); 
+                        border: 2px solid white;
+                        text-align: center;
+                        box-shadow: 0px 0px 20px red inset, 0px 0px 25px blue;
+                    ">
+                        Doble Sombra: Roja interna y Azul externa.
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

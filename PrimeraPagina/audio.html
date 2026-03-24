@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Audio en HTML5 - Tutorial</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Audio en HTML5</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="transformacion.html">Transform</a></li>
+                    <li><a href="video.html">Vídeo</a></li>
+                    <li><a href="audio.html">Audio</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Diferentes estándares de audio</h2>
+                <article>
+                    <p>Para utilizar audio en HTML5 sin usar plugins externos ocurre algo parecido que con el vídeo. Existen diferentes formatos de audio y desgraciadamente no existe ninguno que funcione perfectamente en todos los navegadores, por lo que al menos tendremos que utilizar dos formatos para poder abarcarlos a todos.</p>
+                    <p>Estos 2 formatos de audio mayoritarios son:</p>
+                    <ul>
+                        <li><b>MP3:</b> (.mp3) abarca a la mayoría de navegadores, excepto a FireFox. Aunque está ampliamente arraigado, está sujeto a patentes.</li>
+                        <li><b>OGG Vorbis:</b> (.ogg) no está sujeto a patentes. No es aceptado por Internet Explorer ni por Safari.</li>
+                    </ul>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Compatibilidad con navegadores</h2>
+                <article>
+                    <p>La tabla de formatos de audios aceptados por los diferentes navegadores queda así:</p>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Navegador</th>
+                                <th>MP3</th>
+                                <th>OGG</th>
+                                <th>WAV</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Firefox</td>
+                                <td class="no-check">NO</td>
+                                <td class="check">si</td>
+                                <td class="check">si</td>
+                            </tr>
+                            <tr>
+                                <td>Chrome</td>
+                                <td class="check">si</td>
+                                <td class="check">si</td>
+                                <td class="check">si</td>
+                            </tr>
+                            <tr>
+                                <td>Opera</td>
+                                <td class="check">si</td>
+                                <td class="check">si</td>
+                                <td class="check">si</td>
+                            </tr>
+                            <tr>
+                                <td>Safari</td>
+                                <td class="check">si</td>
+                                <td class="no-check">NO</td>
+                                <td class="check">si</td>
+                            </tr>
+                            <tr>
+                                <td>IExplorer</td>
+                                <td class="check">si</td>
+                                <td class="no-check">NO</td>
+                                <td class="no-check">NO</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>La etiqueta &lt;audio&gt;</h2>
+                <article>
+                    <p>El código sencillo para un único formato de audio sería así:</p>
+                    <pre><code>&lt;audio src="audio.mp3"&gt;&lt;/audio&gt;</code></pre>
+                    
+                    <p>En el tag 'audio' es posible incorporar algunos atributos de control del audio, como son:</p>
+                    <ul>
+                        <li><b>controls:</b> Establece si tendrá la barra de navegación (play, stop, volumen...).</li>
+                        <li><b>autoplay:</b> Indica si el audio se inicia automáticamente al cargar la página.</li>
+                        <li><b>loop:</b> Establece si al acabar el audio, éste debe volver a empezar indefinidamente.</li>
+                        <li><b>preload:</b> Indica si el audio se empieza a cargar cuando el navegador carga la página.</li>
+                    </ul>
+
+                    <h3>Ejemplo con atributos:</h3>
+                    <pre><code>&lt;audio src="audio.mp3" autoplay controls loop&gt;&lt;/audio&gt;</code></pre>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Ejemplo práctico</h2>
+                <article>
+                    <p>Si queremos que el audio se pueda escuchar desde cualquier navegador (que soporte HTML5), tenemos que añadir a este código más posibilidades y por lo tanto tenemos que tener el audio grabado al menos en formato mp3 y ogg. Por lo que el código completo quedaría así:</p>
+                    
+                    <pre><code>&lt;audio controls&gt;
+   &lt;source src="audio.mp3" type="audio/mpeg"/&gt;
+   &lt;source src="audio.ogg" type="audio/ogg"/&gt;
+&lt;/audio&gt;</code></pre>
+
+                    <p>En este ejemplo se han utilizado los atributos de 'autoplay' (para que escuches el audio cuando entres en esta página) y 'controls' (para mostrar la barra de controles).</p>
+                    
+                    <h3>Reproductor en vivo:</h3>
+                    <div style="background: rgba(0, 240, 255, 0.05); padding: 20px; border-radius: 8px; border: 1px solid var(--neon-cyan); text-align: center;">
+                        <audio controls style="width: 100%; max-width: 500px;">
+                            <source src="https://www.w3schools.com/html/horse.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>

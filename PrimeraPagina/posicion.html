@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/Styles.css">
+    <link rel="shortcut icon" href="carpeta/favicon.ico" type="image/x-icon" />
+    <title>Posicionamiento - Tutorial HTML/CSS</title>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a href="index.html" class="volver-btn">Volver</a>
+            <h1>Posicionamiento de las cajas</h1>
+            <nav class="header-menu">
+                <ul>
+                    <li><a href="bordes.html">Bordes</a></li>
+                    <li><a href="sombras.html">Sombras</a></li>
+                    <li><a href="cajas-flotantes.html">Flotantes</a></li>
+                    <li><a href="posicion.html">Posición</a></li>
+                    <li><a href="animaciones.html">Animaciones</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <section class="part">
+                <h2>Opciones de posicionamiento</h2>
+                <article>
+                    <header>relative:</header>
+                    <p>Este es el tipo de posicionamiento por defecto. Las cajas o &lt;divs&gt; se posicionan siempre en relación al resto de &lt;divs&gt;. Si se mueven o se modifica el tamaño de las cajas anteriores, las cajas que hayan debajo se moverán. Con este posicionamiento NO es posible colocar una caja encima de otra.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="position: relative; border: 1px dashed var(--neon-cyan); padding: 10px;">
+                        <div style="background: var(--neon-cyan); color: #000; padding: 10px; margin-bottom: 5px;">Caja 1 (Flujo normal)</div>
+                        <div style="background: var(--neon-pink); color: #000; padding: 10px; position: relative; left: 20px;">Caja 2 (Relative con left: 20px)</div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <article>
+                    <header>absolute:</header>
+                    <p>Al indicar un posicionamiento absoluto es posible colocar una caja en una coordenada concreta sin importar el posicionamiento del resto de cajas. Es posible que una caja esté encima de otra.</p>
+                    <p>Un ejemplo es el caso de la chincheta lila (que hay en la parte superior de esta misma página), que se coloca por encima de otras cajas, pero que al mover el scroll de la página se mueve como el resto de elementos.</p>
+                    
+                    <h3>Ejemplo Aplicado:</h3>
+                    <div style="position: relative; height: 150px; border: 1px solid var(--muted-2); background: rgba(255,255,255,0.05);">
+                        <p style="padding: 10px;">Contenedor relativo...</p>
+                        <div style="position: absolute; top: 10px; right: 10px; background: #a855f7; color: white; padding: 5px 15px; border-radius: 4px; box-shadow: 0 0 10px rgba(168, 85, 247, 0.5);">
+                            Chincheta (Absolute)
+                        </div>
+                    </div>
+                </article>
+            </section>
+
+            <section class="part">
+                <article>
+                    <header>fixed:</header>
+                    <p>Tiene las mismas características que el posicionamiento absoluto, pero con la diferencia de que al mover el scroll del navegador la caja con posicionamiento fijo NO se moverá del lugar donde ha sido ubicada.</p>
+                    <p>Un ejemplo es la bandera (ubicada en la parte superior derecha de la pantalla), que está por encima del resto de elementos y se queda fija en la esquina superior derecha. Así, aunque movamos la barra de scroll o hagamos más pequeña la ventana del navegador no se mueve de esa posición.</p>
+                    <p>Otro ejemplo es el &lt;footer&gt; inferior de esta página, que está colocado fijo en la parte inferior de la ventana del navegador.</p>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Coordenadas de posicionamiento</h2>
+                <article>
+                    <p>Se utilizaría únicamente una de los tres valores que siguen:</p>
+                    <pre><code>#nombre_del_div{
+  position:relative;
+  position:absolute;
+  position:fixed;
+}</code></pre>
+                    <p>Al definir el posicionamiento como absolute o como fixed es necesario indicar la posición o coordenada exacta en la que se desea ubicar la caja (o &lt;div&gt;). Para ello podemos utilizar los siguientes valores:</p>
+                    <ul>
+                        <li><b>left:</b> Especifica la coordenada horizontal, empezando a contar desde el extremo izquierdo.</li>
+                        <li><b>right:</b> Especifica la coordenada horizontal, empezando a contar desde el extremo derecho.</li>
+                        <li><b>top:</b> Especifica la coordenada vertical, empezando a contar desde el extremo superior.</li>
+                        <li><b>bottom:</b> Especifica la coordenada vertical, empezando a contar desde el extremo inferior.</li>
+                    </ul>
+                    <p>Por ejemplo, en el siguiente código se especifica un posicionamiento fijo del footer:</p>
+                    <pre><code>footer{
+  position:fixed;
+  bottom:0px;
+  left:0px;
+}</code></pre>
+                </article>
+            </section>
+
+            <section class="part">
+                <h2>Lo realmente importante</h2>
+                <article>
+                    <p>Hay una cosa realmente importante para evitar problemas de última hora. Si ubicamos un &lt;div&gt; en una posición absoluta de la pantalla sin indicar nada más, será muy probable que cuando cambiemos la anchura del navegador el &lt;div&gt; esté en un lugar muy diferente.</p>
+                    <p>Para evitar este grave problema debemos introducir el &lt;div&gt; con posición absoluta dentro de otro &lt;div&gt; (contenedor) con posición relativa.</p>
+                    <pre><code>#contenedor{ position:relative; }
+#div_absoluto{ position:absolute; }</code></pre>
+                    
+                    <h3>Demostración de la importancia:</h3>
+                    <div style="position: relative; width: 100%; height: 100px; border: 2px solid var(--neon-green); margin-top: 10px;">
+                        <span style="font-size: 0.8rem; color: var(--neon-green); padding: 5px;">Contenedor Relativo</span>
+                        <div style="position: absolute; bottom: 5px; right: 5px; background: var(--neon-green); color: black; padding: 2px 10px; font-weight: bold;">
+                            Hijo Absoluto
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 — Tutorial HTML y CSS - Alejandro Tosne Idrobo</p>
+        </footer>
+    </div>
+</body>
+</html>
